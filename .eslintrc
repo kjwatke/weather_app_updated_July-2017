@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local"
+      }
+    ],
+    "no-undef": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
+  }
+}
