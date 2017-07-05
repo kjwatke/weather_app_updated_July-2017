@@ -1,30 +1,19 @@
-/* @flow*/
-
 export type UserInfo = {
   city: string,
   state: string,
   countryCode: string,
-  ip: string,
   zip: number,
-  lattitude: string,
-  longitude: string,
+  lat: string,
+  lon: string,
 };
 
-export type IpInfo = {
+export type IpAPIReturn = {
   data: {
     city: string,
     state: string,
     countryCode: string,
-    query: string,
     zip: number,
     lat: string,
     lon: string,
   },
-};
-
-export type WeatherProp = {
-  weather: {
-    status: string,
-  },
-  user: UserInfo,
 };
