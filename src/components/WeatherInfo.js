@@ -2,6 +2,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+interface UserInfo {
+  city: string,
+  state: string,
+  countryCode: string,
+  ip: string,
+  zip: number,
+  lattitude: string,
+  longitude: string,
+}
+
 class WeatherInfo extends Component {
   constructor(props: {}) {
     super(props);
@@ -9,21 +19,10 @@ class WeatherInfo extends Component {
   }
 
   componentWillMount() {
-    // const zip: number = 85142;
-    // const api: string = 'cebe11b709d7997fb9e3ced5d768b27d';
-    // let description: string;
-    let userInfo: {
-      city: string,
-      state: string,
-      countryCode: string,
-      ip: string,
-      zip: number,
-      lattitude: string,
-      longitude: string,
-    };
+    let userInfo: UserInfo;
     axios
       .get('http://ip-api.com/json')
-      .then((resp) => {
+      .then((resp: {}): Promise => {
         userInfo = {
           city: resp.data.city,
           state: resp.data.region,
@@ -35,35 +34,13 @@ class WeatherInfo extends Component {
         };
         this.setState({ userInfo });
       })
-      .catch(err => console.error(Error(err)));
+      .catch(err => Error(err));
   }
 
   render() {
     return (
       <div>
-        <ul>
-          <li>
-            city: {this.state.userInfo.city}
-          </li>
-          <li>
-            state: {this.state.userInfo.state}
-          </li>
-          <li>
-            Country: {this.state.userInfo.countryCode}
-          </li>
-          <li>
-            IP Address: {this.state.userInfo.ip}
-          </li>
-          <li>
-            Lattitude: {this.state.userInfo.lat}
-          </li>
-          <li>
-            Longitude: {this.state.userInfo.lon}
-          </li>
-          <li>
-            Zip Code: {this.state.userInfo.zip}
-          </li>
-        </ul>
+        <h1>Something goes here....</h1>
       </div>
     );
   }
