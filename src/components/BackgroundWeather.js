@@ -4,7 +4,16 @@ import React from 'react';
 // Import WeatherInfo component.
 import WeatherInfo from './WeatherInfo';
 
-const BackgroundWeather = (props: { weather: { status: string } }) => {
+type WeatherProp = {
+  weather: {
+    status: string,
+  },
+};
+
+// The sole purpose of this component is to choose what image to render
+// to the Main component. It is entirely dependent on the weather prop passed
+// in.
+const BackgroundWeather = (props: WeatherProp) => {
   let imgSrc: string;
 
   switch (props.weather.status) {

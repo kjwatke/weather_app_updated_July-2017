@@ -1,12 +1,12 @@
 // @flow
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { PageHeader } from 'react-bootstrap';
+import { PageHeader } from 'react-bootstrap';
 
 // Import BackgroundWeather component.
-// import BackgroundWeather from './BackgroundWeather';
+import BackgroundWeather from './BackgroundWeather';
 
-interface UserInfo {
+type UserInfo = {
   city: string,
   state: string,
   countryCode: string,
@@ -14,9 +14,9 @@ interface UserInfo {
   zip: number,
   lattitude: string,
   longitude: string,
-}
+};
 
-interface IpInfo {
+type IpInfo = {
   data: {
     city: string,
     state: string,
@@ -26,7 +26,7 @@ interface IpInfo {
     lat: string,
     lon: string,
   },
-}
+};
 
 class Main extends Component {
   constructor(props: {}) {
@@ -69,25 +69,14 @@ class Main extends Component {
   render() {
     return (
       <div>
-        {/* <BackgroundWeather weather={{ status: 'overcast' }} style={{ background: 'red' }} /> */}
-        <p>
-          City: {this.state.userInfo.city}
-        </p>
-        <p>
-          State: {this.state.userInfo.state}
-        </p>
-        <p>
-          Country Code: {this.state.userInfo.countryCode}
-        </p>
-        <p>
-          IP: {this.state.userInfo.ip}
-        </p>
-        <p>
-          Zip: {this.state.userInfo.zip}
-        </p>
-        <p>
-          Lattitude: {this.state.userInfo.lattitude}, Longitude: {this.state.userInfo.longitude}
-        </p>
+        <PageHeader
+          style={{
+            fontSize: '40px',
+          }}
+        >
+          <small>FreeCodeCamp</small> Weather App
+        </PageHeader>
+        <BackgroundWeather weather={{ status: 'snowing' }} style={{ background: 'red' }} />
       </div>
     );
   }
