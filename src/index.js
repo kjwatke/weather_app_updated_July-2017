@@ -16,4 +16,4 @@ const App = () =>
     <Footer />
   </div>);
 
-ReactDOM.render(<App foo="hello" />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

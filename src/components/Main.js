@@ -5,28 +5,10 @@ import { PageHeader } from 'react-bootstrap';
 
 // Import BackgroundWeather component.
 import BackgroundWeather from './BackgroundWeather';
+import WeatherInfo from './WeatherInfo';
 
-type UserInfo = {
-  city: string,
-  state: string,
-  countryCode: string,
-  ip: string,
-  zip: number,
-  lattitude: string,
-  longitude: string,
-};
-
-type IpInfo = {
-  data: {
-    city: string,
-    state: string,
-    countryCode: string,
-    query: string,
-    zip: number,
-    lat: string,
-    lon: string,
-  },
-};
+// Import types.
+import type { UserInfo, IpInfo } from '../types';
 
 class Main extends Component {
   constructor(props: {}) {
@@ -76,7 +58,11 @@ class Main extends Component {
         >
           <small>FreeCodeCamp</small> Weather App
         </PageHeader>
-        <BackgroundWeather weather={{ status: 'snowing' }} style={{ background: 'red' }} />
+        <BackgroundWeather
+          weather={{ status: 'snowing' }}
+          user={this.state.userInfo}
+          style={{ background: 'red' }}
+        />
       </div>
     );
   }
