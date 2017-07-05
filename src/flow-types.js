@@ -8,9 +8,17 @@ export type UserInfo = {
   lon: string,
 };
 
+export type WeatherInfo = {
+  tempInKelvin: number,
+  humidity: number,
+  pressure: number,
+  description: string,
+  windSpeed: number,
+};
+
 export type WeatherState = {
   userInfo: UserInfo,
-  weather: {},
+  weather: WeatherInfo,
 };
 
 export type Props = {
@@ -25,5 +33,23 @@ export type IpAPIData = {
     zip: number,
     lat: string,
     lon: string,
+  },
+};
+
+export type WeatherAPIData = {
+  data: {
+    main: {
+      temp: number,
+      pressure: number,
+      humidity: number,
+    },
+    weather: [
+      {
+        description: string,
+      },
+    ],
+    wind: {
+      speed: number,
+    },
   },
 };

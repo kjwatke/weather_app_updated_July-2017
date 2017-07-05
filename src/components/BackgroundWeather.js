@@ -26,82 +26,57 @@ import axios from 'axios';
 //     break;
 //   }
 //
-//   return (
-//     <div>
-//       <div
-//         style={{
-//           background: `url(${imgSrc})`,
-//           backgroundRepeat: 'no-repeat',
-//           backgroundSize: 'cover',
-//           backgroundPosition: 'center center',
-//           width: '100%',
-//           height: '60vh',
-//           margin: '0 auto',
-//           opacity: '.7',
-//         }}
-//       />
-//     </div>
-//   );
+
 // };
 
-import type { Props, WeatherState } from '../flow-types';
-
-// const API: string = 'http://api.openweathermap.org/data/2.5/weather';
-// const KEY: string = 'cebe11b709d7997fb9e3ced5d768b27d';
+import type { Props, WeatherState, WeatherAPIData } from '../flow-types';
 
 export default class extends React.Component {
   state: WeatherState;
   state = {
     userInfo: this.props.userInfo,
-    weather: {},
+    weather: {
+      tempInKelvin: 0,
+      humidity: 0,
+      pressure: 0,
+      description: '',
+      windSpeed: 0,
+    },
   };
 
   componentWillReceiveProps(props: Props) {
-    this.setState({
-      userInfo: props.userInfo,
-      weather: {},
-    });
-  }
-
-  componentDidUpdate() {
-    const KEY: string = 'cebe11b709d7997fb9e3ced5d768b27d';
-    const API: string = 'http://api.openweathermap.org/data/2.5/weather';
-    const URL: string = `${API}?q=${this.state.userInfo.city}&APPID=${KEY}`;
-
+    const URL = 'http://api.openweathermap.org/data/2.5/weather';
+    const KEY = 'cebe11b709d7997fb9e3ced5d768b27d';
     axios
-      .get(URL)
-      .then((resp) => {
-        console.log('resp: ', resp);
+      .get(`${URL}?q=${props.userInfo.city}&APPID=${KEY}`)
+      .then((resp: WeatherAPIData) => {
+        this.setState({
+          userInfo: props.userInfo,
+          weather: {
+            tempInKelvin: resp.data.main.temp,
+            humidity: resp.data.main.humidity,
+            pressure: resp.data.main.pressure,
+            description: resp.data.weather[0].description,
+            windSpeed: resp.data.wind.speed,
+          },
+        });
       })
       .catch((err: Error) => err);
   }
 
   props: Props;
+  imgSrc: string;
 
   render() {
     return (
-      <div>
-        backgroundWeather component:
-        <ul>
-          <li>
-            CITY: {this.state.userInfo.city}
-          </li>
-          <li>
-            STATE: {this.state.userInfo.state}
-          </li>
-          <li>
-            COUNTRY: {this.state.userInfo.countryCode}
-          </li>
-          <li>
-            ZIP: {this.state.userInfo.zip}
-          </li>
-          <li>
-            LAT: {this.state.userInfo.lat}
-          </li>
-          <li>
-            LON: {this.state.userInfo.lon}
-          </li>
-        </ul>
+      <div
+        style={{
+          background: `url(${this.imgSrc})`,
+          width: '100%',
+          height: '100vh',
+        }}
+      >
+        content...
       </div>
     );
   }
