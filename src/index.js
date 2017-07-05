@@ -30,8 +30,8 @@ class App extends Component {
     userInfo: UserInfo,
   };
 
-  componentDidMount() {
-    return axios
+  componentWillMount() {
+    axios
       .get('http://ip-api.com/json')
       .then((resp: IpAPIData) => {
         const userData: UserInfo = {

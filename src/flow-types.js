@@ -8,7 +8,7 @@ export type UserInfo = {
   lon: string,
 };
 
-export type State = {
+export type WeatherState = {
   userInfo: UserInfo,
   weather: {},
 };

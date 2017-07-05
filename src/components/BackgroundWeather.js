@@ -1,8 +1,7 @@
 /* @flow*/
 import React from 'react';
+import axios from 'axios';
 
-// Import types.
-// import type { UserInfo } from '../types';
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
 // in.
@@ -45,41 +44,62 @@ import React from 'react';
 //   );
 // };
 
-import type { Props, State } from '../flow-types';
+import type { Props, WeatherState } from '../flow-types';
 
-export default class BackgroundWeather extends React.Component {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
+// const API: string = 'http://api.openweathermap.org/data/2.5/weather';
+// const KEY: string = 'cebe11b709d7997fb9e3ced5d768b27d';
+
+export default class extends React.Component {
+  state: WeatherState;
+  state = {
+    userInfo: this.props.userInfo,
+    weather: {},
+  };
+
+  componentWillReceiveProps(props: Props) {
+    this.setState({
       userInfo: props.userInfo,
       weather: {},
-    };
+    });
   }
 
-  state: State;
+  componentDidUpdate() {
+    const KEY: string = 'cebe11b709d7997fb9e3ced5d768b27d';
+    const API: string = 'http://api.openweathermap.org/data/2.5/weather';
+    const URL: string = `${API}?q=${this.state.userInfo.city}&APPID=${KEY}`;
+
+    axios
+      .get(URL)
+      .then((resp) => {
+        console.log('resp: ', resp);
+      })
+      .catch((err: Error) => err);
+  }
+
   props: Props;
+
   render() {
     return (
       <div>
         backgroundWeather component:
         <ul>
           <li>
-            CITY: {this.props.userInfo.city}
+            CITY: {this.state.userInfo.city}
           </li>
           <li>
-            STATE: {this.props.userInfo.state}
+            STATE: {this.state.userInfo.state}
           </li>
           <li>
-            COUNTRY: {this.props.userInfo.countryCode}
+            COUNTRY: {this.state.userInfo.countryCode}
           </li>
           <li>
-            ZIP: {this.props.userInfo.zip}
+            ZIP: {this.state.userInfo.zip}
           </li>
           <li>
-            LAT: {this.props.userInfo.lat}
+            LAT: {this.state.userInfo.lat}
           </li>
           <li>
-            LON: {this.props.userInfo.lon}
+            LON: {this.state.userInfo.lon}
           </li>
         </ul>
       </div>
