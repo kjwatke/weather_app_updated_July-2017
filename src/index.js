@@ -9,25 +9,18 @@ import Footer from './components/Footer';
 import BackgroundWeather from './components/BackgroundWeather';
 
 // Import flow types.
-import type { UserInfo, IpAPIData } from './flow-types';
+import type { UserInfo, IpAPIData, AppState } from './flow-types';
 
 class App extends Component {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      userInfo: {
-        city: '',
-        state: '',
-        countryCode: '',
-        zip: 99999,
-        lat: '',
-        lon: '',
-      },
-    };
-  }
-
-  state: {
-    userInfo: UserInfo,
+  state: AppState = {
+    userInfo: {
+      city: '',
+      state: '',
+      countryCode: '',
+      zip: 99999,
+      lat: '',
+      lon: '',
+    },
   };
 
   componentWillMount() {

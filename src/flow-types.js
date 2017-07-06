@@ -1,4 +1,5 @@
 /* @flow*/
+
 export type UserInfo = {
   city: string,
   state: string,
@@ -6,6 +7,10 @@ export type UserInfo = {
   zip: number,
   lat: string,
   lon: string,
+};
+
+export type AppState = {
+  userInfo: UserInfo,
 };
 
 export type WeatherInfo = {
