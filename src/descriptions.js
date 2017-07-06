@@ -1,0 +1,67 @@
+export default {
+  thunderstorms: [
+    'thunderstorm with light rain',
+    'thunderstorm with rain',
+    'thunderstorm with heavy rain',
+    'light thunderstorm',
+    'thunderstorm',
+    'heavy thunderstorm',
+    'ragged thunderstorm',
+    'thunderstorm with light drizzle',
+    'thunderstorm with drizzle',
+    'thunderstorm with heavy drizzle',
+  ],
+
+  drizzles: [
+    'light intensity drizzle',
+    'drizzle',
+    'heavy intensity drizzle',
+    'light intensity drizzle rain',
+    'drizzle rain',
+    'heavy intensity drizzle rain',
+    'shower rain and drizzle',
+    'heavy shower rain and drizzle',
+    'shower drizzle',
+  ],
+
+  rains: [
+    'light rain',
+    'moderate rain',
+    'heavy intensity rain',
+    'very heavy rain',
+    'extreme rain',
+    'freezing rain',
+    'light intensity shower rain',
+    'shower rain',
+    'high intensity shower rain',
+    'ragged shower rain',
+  ],
+
+  snows: [
+    'light snow',
+    'snow',
+    'heavy snow',
+    'sleet',
+    'shower sleet',
+    'light rain and snow',
+    'rain and snow',
+    'light shower snow',
+    'shower snow',
+    'heavy shower snow',
+  ],
+
+  atmospheres: [
+    'mist',
+    'smoke',
+    'haze',
+    'sand, dust whirls',
+    'fog',
+    'sand',
+    'dust',
+    'volcanic ash',
+    'squalls',
+    'tornado',
+  ],
+
+  heavyClouds: ['scattered clouds', 'broken clouds', 'overcast clouds'],
+};

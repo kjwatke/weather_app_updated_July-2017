@@ -52,17 +52,7 @@ class App extends Component {
       <div className="app-container">
         <Header />
         <main className="content">
-          city: {this.state.userInfo.city}
-          <br />
-          state: {this.state.userInfo.state}
-          <br />
-          Country: {this.state.userInfo.countryCode}
-          <br />
-          zip: {this.state.userInfo.zip}
-          <br />
-          lattitude: {this.state.userInfo.lat}
-          <br />
-          longitude: {this.state.userInfo.lon}
+          main content...
           <BackgroundWeather userInfo={this.state.userInfo} />
         </main>
         <Footer />

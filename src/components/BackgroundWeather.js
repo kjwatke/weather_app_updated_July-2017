@@ -1,39 +1,26 @@
 /* @flow*/
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import type {
+  Props,
+  WeatherState,
+  WeatherAPIData,
+  Descriptions,
+  Thunderstorms,
+  Rains,
+  Drizzles,
+  Snows,
+  Atmospheres,
+  HeavyClouds,
+} from '../flow-types';
+import descriptions from '../descriptions';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
 // in.
-// const BackgroundWeather = (props) => {
-//   let imgSrc: string;
 
-//   switch (props.weather.status) {
-//   case 'raining':
-//     imgSrc = 'string';
-//     break;
-//   case 'snowing':
-//     imgSrc = 'img/snowy.png';
-//     break;
-//   case 'clear sky':
-//     imgSrc = 'all clear';
-//     break;
-//   case 'overcast':
-//     imgSrc = 'img/overcast.jpg';
-//     break;
-//   default:
-//     imgSrc = 'no weather';
-//     break;
-//   }
-//
-
-// };
-
-import type { Props, WeatherState, WeatherAPIData } from '../flow-types';
-
-export default class extends React.Component {
-  state: WeatherState;
-  state = {
+export default class extends Component {
+  state: WeatherState = {
     userInfo: this.props.userInfo,
     weather: {
       tempInKelvin: 0,
@@ -64,19 +51,40 @@ export default class extends React.Component {
       .catch((err: Error) => err);
   }
 
+  componentWillUpdate(a: Props, b: WeatherState) {
+    if (b.weather.description) {
+      switch (b.weather.description) {
+      case 'clear sky':
+        this.imgSrc = 'img/snowy.png';
+        break;
+      default:
+        this.imgSrc = 'overcast.png';
+        break;
+      }
+    }
+  }
+
+  descriptions: Descriptions = descriptions;
+  thunderstorms: Thunderstorms = this.descriptions.thunderstorms;
+  drizzles: Drizzles = this.descriptions.drizzles;
+  rains: Rains = this.descriptions.rains;
+  snows: Snows = this.descriptions.snows;
+  atmospheres: Atmospheres = this.descriptions.atmospheres;
+  heavyClouds: HeavyClouds = this.descriptions.heavyClouds;
   props: Props;
   imgSrc: string;
 
   render() {
     return (
-      <div
-        style={{
-          background: `url(${this.imgSrc})`,
-          width: '100%',
-          height: '100vh',
-        }}
-      >
-        content...
+      <div>
+        BackgroundWeather content...
+        <img
+          src={this.imgSrc}
+          alt="test"
+          style={{
+            width: '500px',
+          }}
+        />
       </div>
     );
   }
