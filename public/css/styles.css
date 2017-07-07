@@ -1,5 +1,23 @@
 .content {
-  width: 90%;
-  margin: 15% auto 0;
+  width: 100%;
   text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+div,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-img-wrapper-div {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 95vh;
+  opacity: .8;
 }

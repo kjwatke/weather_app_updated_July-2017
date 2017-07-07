@@ -51,15 +51,22 @@ export default class extends Component {
       .catch((err: Error) => err);
   }
 
-  componentWillUpdate(a: Props, b: WeatherState) {
-    if (b.weather.description) {
-      switch (b.weather.description) {
-      case 'clear sky':
-        this.imgSrc = 'img/snowy.png';
-        break;
-      default:
-        this.imgSrc = 'overcast.png';
-        break;
+  componentWillUpdate(nextProps: Props, nextState: WeatherState) {
+    if (nextState.weather.description) {
+      if (this.thunderstorms.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/tstorm.jpg';
+      } else if (this.drizzles.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/drizzle.jpg';
+      } else if (this.rains.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/rain.jpg';
+      } else if (this.snows.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/snow.jpg';
+      } else if (this.atmospheres.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/atmosphere.jpg';
+      } else if (this.heavyClouds.includes(nextState.weather.description)) {
+        this.imgSrc = 'img/overcast.jpg';
+      } else {
+        this.imgSrc = 'img/clear_skies.jpg';
       }
     }
   }
@@ -76,16 +83,12 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        BackgroundWeather content...
-        <img
-          src={this.imgSrc}
-          alt="test"
-          style={{
-            width: '500px',
-          }}
-        />
-      </div>
+      <div
+        className="bg-img-wrapper-div"
+        style={{
+          backgroundImage: `url(${this.imgSrc})`,
+        }}
+      />
     );
   }
 }
