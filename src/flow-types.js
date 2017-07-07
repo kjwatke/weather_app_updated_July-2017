@@ -140,5 +140,5 @@ export type Descriptions = {
 };
 
 export type TempsProps = {
-  temp: number,
+  tempInK: string,
 };

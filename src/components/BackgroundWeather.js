@@ -92,7 +92,7 @@ export default class extends Component {
           backgroundImage: `url(${this.imgSrc})`,
         }}
       >
-        <Temps tempInK={122} />
+        <Temps tempInK={this.state.weather.tempInKelvin} />
       </div>
     );
   }
