@@ -2,9 +2,9 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import type { TempsProps } from '../flow-types';
 
-const kelvinTitle = <h1 className="panel-title">Kelvin</h1>;
-const FahrTitle = <h1 className="panel-title">Fahrenheit</h1>;
-const CelcTitle = <h1 className="panel-title">Celcius</h1>;
+const kelvinTitle = <h1>Kelvin</h1>;
+const FahrTitle = <h1>Fahrenheit</h1>;
+const CelcTitle = <h1>Celcius</h1>;
 
 const convertTemp = (temp: number, desOutput: string) => {
   if (desOutput === 'c') {
