@@ -14,11 +14,11 @@ import type {
   HeavyClouds,
 } from '../flow-types';
 import descriptions from '../descriptions';
+import Temps from './Temps';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
 // in.
-
 export default class extends Component {
   state: WeatherState = {
     userInfo: this.props.userInfo,
@@ -31,6 +31,7 @@ export default class extends Component {
     },
   };
 
+  // Get data from OpenWeatherAPI and add it to state.weather object;
   componentWillReceiveProps(props: Props) {
     const URL = 'http://api.openweathermap.org/data/2.5/weather';
     const KEY = 'cebe11b709d7997fb9e3ced5d768b27d';
@@ -51,6 +52,8 @@ export default class extends Component {
       .catch((err: Error) => err);
   }
 
+  // Choose which image to set as the background. Relies upon description
+  // from OpenWeatherAPI.
   componentWillUpdate(nextProps: Props, nextState: WeatherState) {
     if (nextState.weather.description) {
       if (this.thunderstorms.includes(nextState.weather.description)) {
@@ -88,7 +91,9 @@ export default class extends Component {
         style={{
           backgroundImage: `url(${this.imgSrc})`,
         }}
-      />
+      >
+        <Temps tempInK={122} />
+      </div>
     );
   }
 }

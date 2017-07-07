@@ -44,10 +44,7 @@ class App extends Component {
     return (
       <div className="app-container">
         <Header />
-        <main className="content">
-          main content...
-          <BackgroundWeather userInfo={this.state.userInfo} />
-        </main>
+        <BackgroundWeather userInfo={this.state.userInfo} />
         <Footer />
       </div>
     );

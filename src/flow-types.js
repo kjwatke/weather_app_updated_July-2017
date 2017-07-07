@@ -138,3 +138,7 @@ export type Descriptions = {
 
   heavyClouds: HeavyClouds,
 };
+
+export type TempsProps = {
+  temp: number,
+};

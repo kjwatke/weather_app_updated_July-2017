@@ -7,11 +7,12 @@ import Search from './Search';
 const Header = () => {
   const styles = {
     background: '#006400',
+    margin: '0',
   };
 
   return (
     <nav className="nav-container">
-      <Navbar fluid inverse collapseOnSelect fixedTop style={styles}>
+      <Navbar fluid inverse collapseOnSelect staticTop style={styles}>
         <Navbar.Header>
           <Navbar.Brand>
             <Logo />
