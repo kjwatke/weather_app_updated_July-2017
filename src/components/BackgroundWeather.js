@@ -16,6 +16,7 @@ import type {
 import descriptions from '../descriptions';
 import Temps from './Temps';
 import WeatherStatus from './WeatherStatus';
+import AtmosphereInfo from './AtmosphereInfo';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
@@ -95,6 +96,11 @@ export default class extends Component {
       >
         <WeatherStatus desc={this.state.weather.description} />
         <Temps tempInK={this.state.weather.tempInKelvin} />
+        <AtmosphereInfo
+          pressure={this.state.weather.pressure}
+          windSpeed={this.state.weather.windSpeed}
+          humidity={this.state.weather.humidity}
+        />
       </div>
     );
   }

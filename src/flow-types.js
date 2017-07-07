@@ -123,7 +123,11 @@ export type Atmospheres = [
   'tornado',
 ];
 
-export type HeavyClouds = ['scattered clouds', 'broken clouds', 'overcast clouds'];
+export type HeavyClouds = [
+  'scattered clouds',
+  'broken clouds',
+  'overcast clouds',
+];
 
 export type Descriptions = {
   thunderstorms: Thunderstorms,
@@ -145,4 +149,10 @@ export type TempsProps = {
 
 export type WSProps = {
   desc: string,
+};
+
+export type AtmosphereInfoProps = {
+  humidity: number,
+  pressure: number,
+  windSpeed: number,
 };
