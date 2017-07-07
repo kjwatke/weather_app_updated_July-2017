@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Well, PageHeader } from 'react-bootstrap';
 import type { TempsProps } from '../flow-types';
 
 const kelvinTitle = <h1>Kelvin</h1>;
@@ -16,38 +16,23 @@ const convertTemp = (temp: number, desOutput: string) => {
   return f.toFixed(1);
 };
 
-const Temps = (props: TempsProps) => {
-  const styles = {
-    fontFamily: 'Roboto',
-    fontSize: '2rem',
-    width: '80%',
-    background: 'rgba(255, 255, 255, .2)',
-  };
-  return (
-    <div
-      className="temps-container"
-      style={{
-        textAlign: 'center',
-        width: '40%',
-      }}
-    >
-      <Panel bsStyle="danger" header={kelvinTitle} style={styles}>
-        <div>
-          {props.tempInK}&#x002DA;
-        </div>
-      </Panel>
-      <Panel bsStyle="danger" style={styles} header={FahrTitle}>
-        <div>
-          {convertTemp(props.tempInK, 'f')}&#x002DA;
-        </div>
-      </Panel>
-      <Panel bsStyle="danger" style={styles} header={CelcTitle}>
-        <div>
-          {convertTemp(props.tempInK, 'c')}&#x002DA;
-        </div>
-      </Panel>
-    </div>
-  );
-};
+const Temps = (props: TempsProps) =>
+  (<Well bsSize="large" className="temps-container">
+    <Panel bsStyle="danger" className="temp-panel" header={kelvinTitle}>
+      <div>
+        {props.tempInK}&#x002DA;
+      </div>
+    </Panel>
+    <Panel bsStyle="danger" className="temp-panel" header={FahrTitle}>
+      <div>
+        {convertTemp(props.tempInK, 'f')}&#x002DA;
+      </div>
+    </Panel>
+    <Panel bsStyle="danger" className="temp-panel" header={CelcTitle}>
+      <div>
+        {convertTemp(props.tempInK, 'c')}&#x002DA;
+      </div>
+    </Panel>
+  </Well>);
 
 export default Temps;
