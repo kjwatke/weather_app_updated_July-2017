@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Well, PageHeader } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import type { TempsProps } from '../flow-types';
 
 const kelvinTitle = <h1>Kelvin</h1>;
@@ -17,7 +17,7 @@ const convertTemp = (temp: number, desOutput: string) => {
 };
 
 const Temps = (props: TempsProps) =>
-  (<Well bsSize="large" className="temps-container">
+  (<div className="temps-container">
     <Panel bsStyle="danger" className="temp-panel" header={kelvinTitle}>
       <div>
         {props.tempInK}&#x002DA;
@@ -33,6 +33,6 @@ const Temps = (props: TempsProps) =>
         {convertTemp(props.tempInK, 'c')}&#x002DA;
       </div>
     </Panel>
-  </Well>);
+  </div>);
 
 export default Temps;

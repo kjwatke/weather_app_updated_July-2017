@@ -23,8 +23,9 @@ body {
   opacity: .8;
 }
 
-.temps-container {
-  background: rgba(255, 255, 255, .7);
+.temps-container,
+.weather-status-container {
+  /*background: rgba(255, 255, 255, .3);*/
   text-align: center;
   padding: 0;
   max-width: 95%;
@@ -33,7 +34,8 @@ body {
   top: 2rem;
 }
 
-.temp-panel {
+.temp-panel,
+.status-panel {
   display: inline-block;
   margin: 5% 4%;
 }

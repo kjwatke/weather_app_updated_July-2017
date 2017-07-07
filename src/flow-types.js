@@ -142,3 +142,7 @@ export type Descriptions = {
 export type TempsProps = {
   tempInK: string,
 };
+
+export type WSProps = {
+  desc: string,
+};

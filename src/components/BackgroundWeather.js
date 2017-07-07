@@ -15,6 +15,7 @@ import type {
 } from '../flow-types';
 import descriptions from '../descriptions';
 import Temps from './Temps';
+import WeatherStatus from './WeatherStatus';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
@@ -92,6 +93,7 @@ export default class extends Component {
           backgroundImage: `url(${this.imgSrc})`,
         }}
       >
+        <WeatherStatus desc={this.state.weather.description} />
         <Temps tempInK={this.state.weather.tempInKelvin} />
       </div>
     );
