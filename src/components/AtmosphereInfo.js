@@ -1,10 +1,9 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
 import type { AtmosphereInfoProps } from '../flow-types';
 
 const AtmosphereInfo = (props: AtmosphereInfoProps) =>
   (<div className="atmosphere-info-container">
-    <Panel className="atmosphere-panel" header={<h1>Air Pressure</h1>}>
+    {/* <Panel className="atmosphere-panel" header={<h1>Air Pressure</h1>}>
       <p>
         {props.pressure} hPa
       </p>
@@ -18,6 +17,6 @@ const AtmosphereInfo = (props: AtmosphereInfoProps) =>
       <p>
         {props.windSpeed} m/s
       </p>
-    </Panel>
+    </Panel> */}
   </div>);
 export default AtmosphereInfo;

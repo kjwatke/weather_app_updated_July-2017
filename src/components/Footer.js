@@ -1,10 +1,9 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
 
 const Footer = () =>
   (<footer>
-    <Navbar inverse fixedBottom>
-      {/* <Nav
+    {/* <Navbar inverse fixedBottom> */}
+    {/* <Nav
         style={{
           display: 'flex',
           flexFlow: 'wrap row',
@@ -24,7 +23,7 @@ const Footer = () =>
           Creative Commons Attribution 2.0 Generic License
         </a>
       </Nav> */}
-    </Navbar>
+    {/* </Navbar> */}
   </footer>);
 
 export default Footer;
