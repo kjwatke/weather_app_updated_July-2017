@@ -94,7 +94,6 @@ export default class extends Component {
           backgroundImage: `url(${this.imgSrc})`,
         }}
       >
-        <h1 className="main-heading center">Weather App</h1>
         <WeatherStatus desc={this.state.weather.description} />
         <Temps tempInK={this.state.weather.tempInKelvin} />
         <AtmosphereInfo

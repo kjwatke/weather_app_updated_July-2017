@@ -31,18 +31,8 @@ body {
   right: 3px;
 }
 
-.main-heading {
-  color: #fff;
-  font-size: 2rem;
-  text-shadow: 3px 2px 10px #000;
-  padding: 3rem 0 .9rem;
-  width: 50%;
-  margin: 0 auto;
-  box-shadow: 0 8px 6px -6px #fff;
-}
-
 .weather-icon {
   position: relative;
-  left: 2rem;
-  top: .5rem;
+  left: 4rem;
+  top: 1.2rem;
 }
