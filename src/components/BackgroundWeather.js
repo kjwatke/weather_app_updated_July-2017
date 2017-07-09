@@ -88,13 +88,8 @@ export default class extends Component {
 
   render() {
     return (
-      <div
-        className="bg-img-wrapper-div"
-        style={{
-          backgroundImage: `url(${this.imgSrc})`,
-        }}
-      >
-        <WeatherStatus desc={this.state.weather.description} />
+      <div className="flex-container">
+        <WeatherStatus desc={this.state.weather.description} img={this.imgSrc} />
         <Temps tempInK={this.state.weather.tempInKelvin} />
         <AtmosphereInfo
           pressure={this.state.weather.pressure}
