@@ -17,6 +17,7 @@ import descriptions from '../descriptions';
 import Temps from './Temps';
 import WeatherStatus from './WeatherStatus';
 import AtmosphereInfo from './AtmosphereInfo';
+import LocationInfo from './LocationInfo';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
@@ -38,7 +39,7 @@ export default class extends Component {
     const URL = 'http://api.openweathermap.org/data/2.5/weather';
     const KEY = 'cebe11b709d7997fb9e3ced5d768b27d';
     axios
-      .get(`${URL}?q=${props.userInfo.city}&APPID=${KEY}`)
+      .get(`${URL}?lat=${props.userInfo.lat}&lon=${props.userInfo.lon}&APPID=${KEY}`)
       .then((resp: WeatherAPIData) => {
         this.setState({
           userInfo: props.userInfo,
@@ -95,6 +96,12 @@ export default class extends Component {
           pressure={this.state.weather.pressure}
           windSpeed={this.state.weather.windSpeed}
           humidity={this.state.weather.humidity}
+        />
+        <LocationInfo
+          city={this.state.userInfo.city}
+          country={this.state.userInfo.countryCode}
+          lat={this.state.userInfo.lat}
+          lon={this.state.userInfo.lon}
         />
       </div>
     );
