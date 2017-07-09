@@ -15,11 +15,10 @@ const getTemp = (temp: number, desOutput: string = 'k'): number => {
 };
 
 const Temps = ({ tempInK }: TempsProps) =>
-  //           {getTemp(tempInK, 'c')}&#x002DA; C
-  (<div className="card weather-temp-card">
+  (<div className="card weather-temp-card z-depth-5">
     <div className="card-title center">
       <h2>
-        Current Temperature{' '}
+        Current Temperature
         <span>
           <img
             style={{ width: '25px', position: 'relative', top: '5px' }}
@@ -30,17 +29,15 @@ const Temps = ({ tempInK }: TempsProps) =>
       </h2>
     </div>
     <div className="card-content">
-      <ul className="collection center red-text">
-        <li className="collection-item">
-          {getTemp(tempInK)}&#x002DA; K
-        </li>
-        <li className="collection-item">
-          {getTemp(tempInK, 'f')}&#x002DA; F
-        </li>
-        <li className="collection-item">
-          {getTemp(tempInK, 'c')}&#x002DA; C
-        </li>
-      </ul>
+      <div className="card-action center red-text">
+        Kelvin: {getTemp(tempInK)}&#x002DA;
+      </div>
+      <div className="card-action center red-text">
+        Fahrenheit: {getTemp(tempInK, 'f')}&#x002DA;
+      </div>
+      <div className="card-action center red-text">
+        Celcius: {getTemp(tempInK, 'c')}&#x002DA;
+      </div>
     </div>
   </div>);
 

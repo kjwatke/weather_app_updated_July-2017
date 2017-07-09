@@ -1,22 +1,21 @@
+/* @flow*/
+
 import React from 'react';
 import type { AtmosphereInfoProps } from '../flow-types';
 
-const AtmosphereInfo = (props: AtmosphereInfoProps) =>
-  (<div className="atmosphere-info-container">
-    {/* <Panel className="atmosphere-panel" header={<h1>Air Pressure</h1>}>
-      <p>
-        {props.pressure} hPa
-      </p>
-    </Panel>
-    <Panel className="atmosphere-panel" header={<h1>Humidity</h1>}>
-      <p>
-        {props.humidity}&#x00025;
-      </p>
-    </Panel>
-    <Panel className="atmosphere-panel" header={<h1>Wind Speed</h1>}>
-      <p>
-        {props.windSpeed} m/s
-      </p>
-    </Panel> */}
+const AtmosphereInfo = ({ windSpeed, pressure, humidity }: AtmosphereInfoProps) =>
+  (<div className="card weather-atmosphere-card transparent z-depth-5">
+    <h2 className="card-title center black-text">Other Info</h2>
+    <div className="card-content center weather-desc">
+      <div className="card-action transparent orange-text">
+        Air Pressure: {pressure} hPa
+      </div>
+      <div className="card-action orange-text">
+        Humidity: {humidity}&#x00025;
+      </div>
+      <div className="card-action transparent orange-text">
+        Wind Speed: {windSpeed} m/s
+      </div>
+    </div>
   </div>);
 export default AtmosphereInfo;
