@@ -1,29 +1,13 @@
 import React from 'react';
 
-// import Logo from './Logo';
-// import Search from './Search';
+import Logo from './Logo';
 
 const Header = () =>
-  // const styles = {
-  //   background: '#006400',
-  //   margin: '0',
-  // };
-
-   (
-     <nav className="nav-container">
-       {/* <Navbar fluid inverse collapseOnSelect staticTop style={styles}>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Logo />
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight>
-            <Search />
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar> */}
-     </nav>
-  );
+  (<div className="navbar-fixed">
+    <nav className="green darken-4">
+      <div className="nav-wrapper">
+        <Logo className="brand-logo" />
+      </div>
+    </nav>
+  </div>);
 export default Header;
