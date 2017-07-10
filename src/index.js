@@ -25,7 +25,7 @@ class App extends Component {
 
   componentWillMount() {
     axios
-      .get('https://ipapi.com/json')
+      .get('https://ipapi.co/json')
       .then((resp: IpAPIData) => {
         console.log('resp: ', resp);
         const userData: UserInfo = {
