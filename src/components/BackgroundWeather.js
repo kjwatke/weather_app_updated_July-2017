@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import type {
   Props,
-  WeatherState,
-  WeatherAPIData,
-  Descriptions,
-  Thunderstorms,
-  Rains,
-  Drizzles,
-  Snows,
-  Atmospheres,
-  HeavyClouds,
+    WeatherState,
+    WeatherAPIData,
+    Descriptions,
+    Thunderstorms,
+    Rains,
+    Drizzles,
+    Snows,
+    Atmospheres,
+    HeavyClouds,
 } from '../flow-types';
 import descriptions from '../descriptions';
 import Temps from './Temps';
@@ -36,11 +36,12 @@ export default class extends Component {
 
   // Get data from OpenWeatherAPI and add it to state.weather object;
   componentWillReceiveProps(props: Props) {
-    const URL = 'http://api.openweathermap.org/data/2.5/weather';
+    const URL = 'https://api.openweathermap.org/data/2.5/weather';
     const KEY = 'cebe11b709d7997fb9e3ced5d768b27d';
     axios
       .get(`${URL}?lat=${props.userInfo.lat}&lon=${props.userInfo.lon}&APPID=${KEY}`)
       .then((resp: WeatherAPIData) => {
+        console.log('resp: ', resp);
         this.setState({
           userInfo: props.userInfo,
           weather: {

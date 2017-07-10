@@ -31,14 +31,14 @@ export type Props = {
 };
 
 export type IpAPIData = {
-  data: {
-    city: string,
-    region: string,
-    countryCode: string,
-    zip: number,
-    lat: string,
-    lon: string,
-  },
+
+  city: string,
+  region: string,
+  countryCode: string,
+  zip: number,
+  lat: string,
+  lon: string,
+
 };
 
 export type WeatherAPIData = {
