@@ -5,7 +5,7 @@ import type { AtmosphereInfoProps } from '../flow-types';
 
 const AtmosphereInfo = ({ windSpeed, pressure, humidity }: AtmosphereInfoProps) =>
   (<div className="card weather-atmosphere-card transparent z-depth-5">
-    <h2 className="card-title center black-text">Other Info</h2>
+    <h2 className="card-title center black-text">Atmosphere Info</h2>
     <div className="card-content center weather-desc">
       <div className="card-action transparent orange-text">
         Air Pressure: {pressure} hPa
