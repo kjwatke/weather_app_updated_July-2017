@@ -25,15 +25,16 @@ class App extends Component {
 
   componentWillMount() {
     axios
-      .get('http://ip-api.com/json')
+      .get('http://ipapi.com/json')
       .then((resp: IpAPIData) => {
+        console.log('resp: ', resp);
         const userData: UserInfo = {
-          city: resp.data.city,
-          state: resp.data.region,
-          countryCode: resp.data.countryCode,
-          zip: resp.data.zip,
-          lat: resp.data.lat,
-          lon: resp.data.lon,
+          city: resp.city,
+          state: resp.region,
+          countryCode: resp.country,
+          zip: resp.postal,
+          lat: resp.latitude,
+          lon: resp.longitude,
         };
         this.setState({ userInfo: userData });
       })
