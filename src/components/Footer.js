@@ -9,29 +9,20 @@ const urls = {
 };
 const Footer = () =>
   (<footer className="page-footer blue-grey darken-4">
-    <div className="container">
-      <div className="row">
-        <div
-          className="col l4 offset-l2 s12"
-          style={{ display: 'flex', flexFlow: 'wrap row', justifyContent: 'space-around' }}
-        >
-          <a href={urls.portfolio} target="_blank">
-            <img className="icon" src="img/portfolio.svg" alt="portfolio icon" /> Portfolio
-          </a>
-          <a href={urls.githubRepo} target="_blank">
-            <img className="icon" src="img/github.svg" alt="github logo" /> Repo
-          </a>
-          <a href={urls.license} target="_blank">
-            <img className="icon" src="img/license.svg" alt="license icon" /> License
-          </a>
-        </div>
-      </div>
-    </div>
-    <div className="footer-copyright">
-      <div className="grey-text text-lighten-1 container center-align">
+    <div className="links-container">
+      <div className="grey-text text-lighten-1 cpy">
         <img className="icon" src="img/cpyright.svg" alt="copyright logo" /> {getCurrentYear()}{' '}
-        Kevin Watke
+        <h6>Kevin Watke</h6>
       </div>
+      <a className="link-item" href={urls.portfolio} target="_blank">
+        <img className="icon" src="img/portfolio.svg" alt="portfolio icon" /> Portfolio
+      </a>
+      <a className="link-item" href={urls.githubRepo} target="_blank">
+        <img className="icon" src="img/github.svg" alt="github logo" /> Repo
+      </a>
+      <a className="link-item" href={urls.license} target="_blank">
+        <img className="icon" src="img/license.svg" alt="license icon" /> License
+      </a>
     </div>
   </footer>);
 
