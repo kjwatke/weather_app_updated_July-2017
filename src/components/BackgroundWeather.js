@@ -36,7 +36,7 @@ export default class extends Component {
 
   // Get data from OpenWeatherAPI and add it to state.weather object;
   componentWillReceiveProps(props: Props) {
-    const URL = 'https://api.openweathermap.org/data/2.5/weather';
+    const URL = 'http://api.openweathermap.org/data/2.5/weather';
     const KEY = 'cebe11b709d7997fb9e3ced5d768b27d';
     axios
       .get(`${URL}?lat=${props.userInfo.lat}&lon=${props.userInfo.lon}&APPID=${KEY}`)
