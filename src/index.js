@@ -7,6 +7,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BackgroundWeather from './components/BackgroundWeather';
+import Modal from './components/Modal';
 
 // Import flow types.
 import type { UserInfo, IpAPIData, AppState } from './flow-types';
@@ -43,7 +44,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app-container">
+      <div>
+        <Modal />
         <Header />
         <BackgroundWeather userInfo={this.state.userInfo} />
         <Footer />
