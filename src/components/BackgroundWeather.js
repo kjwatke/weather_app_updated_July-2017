@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import type {
   Props,
-    WeatherState,
-    WeatherAPIData,
-    Descriptions,
-    Thunderstorms,
-    Rains,
-    Drizzles,
-    Snows,
-    Atmospheres,
-    HeavyClouds,
+  WeatherState,
+  WeatherAPIData,
+  Descriptions,
+  Thunderstorms,
+  Rains,
+  Drizzles,
+  Snows,
+  Atmospheres,
+  HeavyClouds,
 } from '../flow-types';
 import descriptions from '../descriptions';
 import Temps from './Temps';
@@ -41,7 +41,6 @@ export default class extends Component {
     axios
       .get(`${URL}?lat=${props.userInfo.lat}&lon=${props.userInfo.lon}&APPID=${KEY}`)
       .then((resp: WeatherAPIData) => {
-        console.log('resp: ', resp);
         this.setState({
           userInfo: props.userInfo,
           weather: {

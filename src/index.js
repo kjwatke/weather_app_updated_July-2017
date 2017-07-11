@@ -28,7 +28,6 @@ class App extends Component {
     axios
       .get('http://ip-api.com/json')
       .then((resp: IpAPIData) => {
-        console.log('resp: ', resp);
         const userData: UserInfo = {
           city: resp.data.city,
           state: resp.data.region,
