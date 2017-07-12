@@ -2,11 +2,14 @@ import React from 'react';
 
 const handleClose = () => {
   const modal = document.querySelector('.m-container');
+  const modalContainer = document.querySelector('.m');
   modal.classList.add('hide-m');
   setTimeout(() => {
-    const modalContainer = document.querySelector('.m');
     modalContainer.classList.add('hide-m-container');
   }, 150);
+  setTimeout(() => {
+    modalContainer.classList.add('hidden');
+  }, 300);
 };
 const Modal = () =>
   (<div className="outer-container">
