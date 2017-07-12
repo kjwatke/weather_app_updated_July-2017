@@ -1,7 +1,5 @@
 /* @flow*/
 import desc from './descriptions';
-// import type {
-// Thunderstorms, Rains, Drizzles, Snows, Atmospheres, HeavyClouds } from './flow-types';
 
 const checkThunderstorms = (weatherDesc: string): boolean => {
   const thunderstorms: Array<string> = desc.thunderstorms;
