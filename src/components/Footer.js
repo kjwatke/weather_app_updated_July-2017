@@ -5,7 +5,7 @@ const getCurrentYear = () => new Date().getFullYear();
 const urls = {
   portfolio: 'http://kevinwatke.com',
   githubRepo: 'https://github.com/kjwatke/weather_app_updated_July-2017',
-  license: 'https://github.com/kjwatke/weather_app_updated_July-2017/blob/master/README.md',
+  license: 'https://github.com/kjwatke/weather_app_updated_July-2017/blob/master/LICENSE.md',
 };
 const Footer = () =>
   (<footer className="page-footer blue-grey darken-4">
