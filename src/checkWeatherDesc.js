@@ -3,7 +3,7 @@ import desc from './descriptions';
 // import type {
 // Thunderstorms, Rains, Drizzles, Snows, Atmospheres, HeavyClouds } from './flow-types';
 
-const checkThunderstorms = (weatherDesc: string) => {
+const checkThunderstorms = (weatherDesc: string): boolean => {
   const thunderstorms: Array<string> = desc.thunderstorms;
   return thunderstorms.includes(weatherDesc);
 };
