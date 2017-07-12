@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react';
 
 const handleClose = () => {
@@ -11,6 +12,7 @@ const handleClose = () => {
     modalContainer.classList.add('hidden');
   }, 300);
 };
+
 const Modal = () =>
   (<div className="outer-container">
     <div className="m">

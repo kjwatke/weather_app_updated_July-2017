@@ -12,7 +12,7 @@ const LocationInfo = ({
   lat: string,
   lon: string,
 }) =>
-  (<div className="card weather-location-info-card z-depth-5">
+  <div className="card weather-location-info-card z-depth-5">
     <div className="card-title center">
       <h4>Location Info</h4>
     </div>
@@ -30,6 +30,6 @@ const LocationInfo = ({
         Longitude: {lon}
       </div>
     </div>
-  </div>);
+  </div>;
 
 export default LocationInfo;

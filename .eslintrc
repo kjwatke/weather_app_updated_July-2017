@@ -1,13 +1,6 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "airbnb"
-  ],
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
+  "extends": ["eslint:recommended", "airbnb"],
+  "plugins": ["react", "jsx-a11y", "import"],
   "parser": "babel-eslint",
   "env": {
     "es6": true
@@ -19,10 +12,8 @@
     "jsx": true
   },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": ["error", 2],
+    "comma-style": "off",
     "no-unused-vars": [
       "error",
       {
@@ -33,10 +24,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ]
   }
