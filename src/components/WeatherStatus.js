@@ -2,7 +2,7 @@ import React from 'react';
 import type { WSProps } from '../flow-types';
 
 // TODO: Add logic to determine the correct animated icon to return here.
-const getWeatherIcon = (): string => 'img/animated/cloudy-day-1.svg';
+const getWeatherIcon = (): string => 'img/animated/snowy-4.svg';
 const WeatherStatus = ({ desc, img }: WSProps) =>
   (<div className="card weather-status-card z-depth-5">
     <div className="card-image">

@@ -1,23 +1,19 @@
 /* @flow*/
 import React, { Component } from 'react';
 import axios from 'axios';
-import type {
-  Props,
-  WeatherState,
-  WeatherAPIData,
-  Descriptions,
-  Thunderstorms,
-  Rains,
-  Drizzles,
-  Snows,
-  Atmospheres,
-  HeavyClouds,
-} from '../flow-types';
-import descriptions from '../descriptions';
+import type { Props, WeatherState, WeatherAPIData } from '../flow-types';
 import Temps from './Temps';
 import WeatherStatus from './WeatherStatus';
 import AtmosphereInfo from './AtmosphereInfo';
 import LocationInfo from './LocationInfo';
+import {
+  checkThunderstorms,
+  checkRains,
+  checkDrizzles,
+  checkSnows,
+  checkAtmospheres,
+  checkHeavyClouds,
+} from '../checkWeatherDesc';
 
 // The sole purpose of this component is to choose what image to render
 // to the Main component. It is entirely dependent on the weather prop passed
@@ -58,18 +54,19 @@ export default class extends Component {
   // Choose which image to set as the background. Relies upon description
   // from OpenWeatherAPI.
   componentWillUpdate(nextProps: Props, nextState: WeatherState) {
-    if (nextState.weather.description) {
-      if (this.thunderstorms.includes(nextState.weather.description)) {
+    const desc = nextState.weather.description;
+    if (desc) {
+      if (checkThunderstorms(desc)) {
         this.imgSrc = 'img/tstorm.jpg';
-      } else if (this.drizzles.includes(nextState.weather.description)) {
-        this.imgSrc = 'img/drizzle.jpg';
-      } else if (this.rains.includes(nextState.weather.description)) {
+      } else if (checkDrizzles(desc)) {
+        this.imgSrc = 'img/drizzle/jpg';
+      } else if (checkRains(desc)) {
         this.imgSrc = 'img/rain.jpg';
-      } else if (this.snows.includes(nextState.weather.description)) {
+      } else if (checkSnows(desc)) {
         this.imgSrc = 'img/snow.jpg';
-      } else if (this.atmospheres.includes(nextState.weather.description)) {
+      } else if (checkAtmospheres(desc)) {
         this.imgSrc = 'img/atmosphere.jpg';
-      } else if (this.heavyClouds.includes(nextState.weather.description)) {
+      } else if (checkHeavyClouds(desc)) {
         this.imgSrc = 'img/overcast.jpg';
       } else {
         this.imgSrc = 'img/clear_skies.jpg';
@@ -77,13 +74,6 @@ export default class extends Component {
     }
   }
 
-  descriptions: Descriptions = descriptions;
-  thunderstorms: Thunderstorms = this.descriptions.thunderstorms;
-  drizzles: Drizzles = this.descriptions.drizzles;
-  rains: Rains = this.descriptions.rains;
-  snows: Snows = this.descriptions.snows;
-  atmospheres: Atmospheres = this.descriptions.atmospheres;
-  heavyClouds: HeavyClouds = this.descriptions.heavyClouds;
   props: Props;
   imgSrc: string;
 
